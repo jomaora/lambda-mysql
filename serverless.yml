@@ -14,10 +14,6 @@ custom:
   serverless-offline:
     httpPort: 8006
     noPrependStageInUrl: true
-  prune:
-    automatic: true
-    includeLayers: true
-    number: 10
 
 package:
   individually: true
