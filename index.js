@@ -1,7 +1,8 @@
 const mysql = require('mysql2/promise');
 module.exports.handler = async (event, context, callback) => {
+  let con;
   try {
-    const con = await mysql.createConnection({
+    con = await mysql.createConnection({
       host: process.env.NODE_ENV === 'development' ? 'localhost': 'poc-review-lambda-1.cluster-cbshp9jla1xz.eu-west-1.rds.amazonaws.com',
       database: process.env.NODE_ENV === 'development' ? 'ReviewMode': 'ReviewMode',
       user: process.env.NODE_ENV === 'development' ? 'admin': 'admin',
@@ -34,6 +35,6 @@ module.exports.handler = async (event, context, callback) => {
     console.log(err);
     callback(err);
   } finally {
-    con.end();
+    con.end && con.end();
   }
 };
