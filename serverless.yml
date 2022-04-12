@@ -1,0 +1,31 @@
+service: serverless-simple-http-endpoint
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  stage: ${env:NODE_ENV, "development"}
+  runtime: nodejs12.x
+  environment:
+    NODE_ENV: ${self:provider.stage}
+
+custom:
+  serverless-offline:
+    httpPort: 8006
+    noPrependStageInUrl: true
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 10
+
+package:
+  individually: true
+
+functions:
+  currentTime:
+    handler: index.handler
+    events:
+      - http:
+          path: /time
+          method: get

@@ -1,0 +1,16 @@
+{
+  "name": "lamdba-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:serverless": "NODE_ENV=development sls offline start",
+    "test:build": "sls package"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^8.5.0",
+    "serverless": "^3.12.0"
+  }
+}
