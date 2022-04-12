@@ -15,9 +15,6 @@ custom:
     httpPort: 8006
     noPrependStageInUrl: true
 
-package:
-  individually: true
-
 functions:
   currentTime:
     handler: index.handler
